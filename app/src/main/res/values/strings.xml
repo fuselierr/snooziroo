@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Snooziroo</string>
+    <string name="welcome_message">Welcome to Snooziroo!</string>
+    <string name="welcome_message2">Take care of your very own Snoozie whilst taking care of your own sleep schedule.</string>
+    <string name="get_started">Get Started</string>
+    <string name="explain_message">You will be taking care of your very own Snoozie! However, it will only thrive if you are sleeping and waking at the right times.</string>
+    <string name="explain_message2">Let\'s get everything set up, shall we?</string>
+    <string name="ok">OK</string>
+    <string name="select_message">Select the times you wish to sleep and wake every week. We’ll pick the perfect Snoozie that loves your schedule!</string>
+    <string name="weekdays">Weekdays</string>
+    <string name="weekends">Weekends</string>
+    <string name="wake">Wake:</string>
+    <string name="sleep">Sleep:</string>
+    <string name="custom_week">Custom Week</string>
+    <string name="done">Done</string>
+    <string name="search_message">Searching for a suitable Snoozie…</string>
+    <string name="name_message">Give your Snoozie a name.</string>
+    <string name="end_message">You\'re all set!</string>
 </resources>
