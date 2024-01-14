@@ -7,6 +7,10 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
+    <com.example.snooziroo.CanvasView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/TitleText"
         android:layout_width="wrap_content"
@@ -22,10 +26,11 @@
         android:id="@+id/StartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginBottom="88dp"
+        android:backgroundTint="#4A18A6"
         android:text="@string/get_started"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
