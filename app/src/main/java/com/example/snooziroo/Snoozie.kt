@@ -21,6 +21,7 @@ import java.util.Locale
 class Snoozie private constructor() {
 
     private var doneSetup = false
+    private var fed = false
 
     private var snoozieName: String? = null
     private var snoozieColour: Int = Color.BLACK
@@ -35,6 +36,14 @@ class Snoozie private constructor() {
 
     fun setupComplete() {
         this.doneSetup = true
+    }
+
+    fun isFed() : Boolean {
+        return fed
+    }
+
+    fun setFed(state: Boolean) {
+        this.fed = state
     }
 
     fun setSnoozieName(name: String) {

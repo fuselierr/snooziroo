@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -41,6 +42,7 @@ class FunctionalActivity : AppCompatActivity() {
 
         if (currentTime == snoozie.getWakeTime(currentDay)) {
             Snoozie.isBedtime = false
+            snoozie.setFed(false)
         } else if (currentTime == snoozie.getSleepTime(currentDay)) {
             Snoozie.isBedtime = true
         }
@@ -48,14 +50,23 @@ class FunctionalActivity : AppCompatActivity() {
         val feedButton = findViewById<Button>(R.id.feedButton)
         feedButton.setOnClickListener() {
             Snoozie.sendNotification("This is a test", applicationContext)
-            if (Snoozie.isTimeAfter(snoozie.getSleepTime(currentDay), currentTime) &&
-                Snoozie.isTimeAfter(currentTime, snoozie.getWakeTime(nextDay))) {
-
+            if (!Snoozie.isBedtime && Snoozie.isTimeAfter(currentTime, addMinutesToTime(snoozie.getWakeTime(currentDay), 5))) {
+                Toast.makeText(applicationContext, "${snoozie.getSnoozieName()} has been fed!", Toast.LENGTH_SHORT).show()
+                snoozie.setFed(true)
+            } else {
+                Toast.makeText(applicationContext, "Cannot feed! ${snoozie.getSnoozieName()} is not hungry yet.", Toast.LENGTH_SHORT).show()
             }
         }
 
         val snoozieName : TextView = findViewById(R.id.snoozieName)
+        snoozieName.setTextColor(Color.WHITE)
         snoozieName.text = snoozie.getSnoozieName()
+
+        val nextSleepTime : TextView = findViewById(R.id.nextSleepTime)
+        val nextWakeTime : TextView = findViewById(R.id.nextWakeTime)
+
+        nextSleepTime.text = "Next Sleep: ${snoozie.getSleepTime(currentDay)}"
+        nextWakeTime.text = "Next Wake: ${snoozie.getWakeTime(nextDay)}"
 
         timeTextView = findViewById(R.id.timeText)
         dateTextView = findViewById(R.id.dateText)
@@ -142,6 +153,16 @@ class FunctionalActivity : AppCompatActivity() {
         snoozie.setupComplete()
     }
 
+    private fun addMinutesToTime(startTime: String, minutesToAdd: Int): String {
+        val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
 
+        val date = formatter.parse(startTime) ?: Date()
+
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        calendar.add(Calendar.MINUTE, minutesToAdd)
+
+        return formatter.format(calendar.time)
+    }
 
 }

@@ -7,6 +7,22 @@
     android:background="@drawable/gradient_background"
     tools:context=".TimeSelectActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="176dp"
+        android:src="@drawable/sleep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelectText" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="104dp"
+        android:src="@drawable/wake"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelectText" />
+
     <TextView
         android:id="@+id/SelectText"
         android:layout_width="326dp"
@@ -47,8 +63,8 @@
         android:id="@+id/weekdayWake"
         android:layout_width="128dp"
         android:layout_height="64dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weekdayText" />
 
@@ -56,7 +72,7 @@
         android:id="@+id/weekdaySleep"
         android:layout_width="128dp"
         android:layout_height="64dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weekdayWake" />
@@ -65,8 +81,8 @@
         android:id="@+id/weekendWake"
         android:layout_width="128dp"
         android:layout_height="64dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weekendText" />
 
@@ -74,7 +90,7 @@
         android:id="@+id/weekendSleep"
         android:layout_width="128dp"
         android:layout_height="64dp"
-        android:layout_marginStart="236dp"
+        android:layout_marginStart="252dp"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weekendWake" />
