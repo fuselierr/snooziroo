@@ -10,6 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val snoozie = Snoozie.getInstance()
+
+        if (snoozie.doneSetup()) {
+            val intent = Intent(this, FunctionalActivity::class.java)
+            startActivity(intent)
+        }
+
         val startButton = findViewById<Button>(R.id.StartButton)
         startButton.setOnClickListener {
             val intent = Intent(this,ExplainActivity::class.java)

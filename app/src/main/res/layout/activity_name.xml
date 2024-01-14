@@ -5,41 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".SnoozieSearchActivity">
+    tools:context=".NameActivity">
 
     <com.example.snooziroo.CanvasView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/snoozieResultText"
+        android:id="@+id/namePromptText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/snoozie_select_message"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="52dp"
+        android:text="Give your Snoozie a name."
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/confirmButton"
+        android:id="@+id/doneButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="592dp"
-        android:text="I love it!"
+        android:layout_marginStart="164dp"
+        android:layout_marginBottom="96dp"
+        android:text="@string/done"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/snoozieDescribe"
-        android:layout_width="355dp"
-        android:layout_height="153dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="32dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
+    <EditText
+        android:id="@+id/nameTextBox"
+        android:layout_width="218dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="148dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/doneButton2"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

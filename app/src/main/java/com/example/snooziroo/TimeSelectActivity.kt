@@ -30,12 +30,51 @@ class TimeSelectActivity : AppCompatActivity() {
         weekendWakeSpinner.adapter = adapter
         weekendSleepSpinner.adapter = adapter
 
+        setSpinnerListener(weekdayWakeSpinner)
+        setSpinnerListener(weekdaySleepSpinner)
+        setSpinnerListener(weekendWakeSpinner)
+        setSpinnerListener(weekendSleepSpinner)
+
         val doneButton = findViewById<Button>(R.id.doneButton)
         doneButton.setOnClickListener() {
             val intent = Intent(this,SnoozieSearchActivity::class.java)
             startActivity(intent)
         }
 
+    }
+
+    private fun setSpinnerListener(spinner: Spinner) {
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+                val selectedTime = parentView?.getItemAtPosition(position).toString()
+
+                val snoozie = Snoozie.getInstance()
+                val leftPointer = if (spinner.id == R.id.weekdayWake || spinner.id == R.id.weekdaySleep) {
+                    0
+                } else {
+                    5
+                }
+                val rightPointer = if (spinner.id == R.id.weekdayWake || spinner.id == R.id.weekdaySleep) {
+                    5
+                } else {
+                    7
+                }
+                if (spinner.id == R.id.weekdayWake || spinner.id == R.id.weekendWake) {
+                    for (i in leftPointer until rightPointer) {
+                        snoozie.setWakeTime(i, selectedTime)
+                    }
+                } else if (spinner.id == R.id.weekdaySleep || spinner.id == R.id.weekendSleep) {
+                    for (i in leftPointer until rightPointer) {
+                        snoozie.setSleepTime(i, selectedTime)
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
     }
 
     private fun generateTimes(startTime: String): List<String> {
