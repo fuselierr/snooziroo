@@ -16,4 +16,11 @@
     <string name="search_message">Searching for a suitable Snoozie…</string>
     <string name="name_message">Give your Snoozie a name.</string>
     <string name="end_message">You\'re all set!</string>
+    <string name="snoozie_select_message">Your own selected Snoozie is:</string>
+    <string name="red_snoozie_desc">Red Snoozies are </string>
+    <string name="orange_snoozie_desc">Orange Snoozies </string>
+    <string name="yellow_snoozie_desc">Yellow Snoozies</string>
+    <string name="green_snoozie_desc">Green Snoozies</string>
+    <string name="blue_snoozie_desc">Blue Snoozies</string>
+    <string name="purple_snoozie_desc">Purple Snoozies</string>
 </resources>
